@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <style>
+      * {
+        font-family: arial;
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        background-color: #f5f5f5;
+      }
+
+      ul {
+        display: flex;
+        list-style: none;
+        justify-content: center;
+        background-color: #222222;
+      }
+
+      ul li {
+        padding-bottom: 1.5rem;
+        padding-top: 1.5rem;
+        padding-left: 6rem;
+        padding-right: 6rem;
+        font-size: 1.15rem;
+        color: #ffffff;
+        cursor: pointer;
+      }
+
+      ul li:hover {
+        background-color: #000000;
+      }
+
+      .panel {
+        height: 79vh;
+        width: 93vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        filter: saturate(0);
+        padding: 2rem;
+        margin: 2rem;
+        border: 4px solid #d1d5db;
+        transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .panel:hover {
+        filter: saturate(1);
+        cursor: pointer;
+      }
+
+      .panel h1 {
+        font-size: 5rem;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li id="button-valorant">Valorant</li>
+        <li id="button-overwatch">Overwatch</li>
+        <li id="button-hyperlight">Hyperlight</li>
+        <li id="button-apex">Apex</li>
+      </ul>
+    </nav>
+    <div
+      class="panel"
+      id="panel-valorant"
+      style="background-image: url(bg-valorant.jpg)"
+    >
+      <h1>Valorant</h1>
+    </div>
+    <div
+      class="panel"
+      id="panel-overwatch"
+      style="background-image: url(bg-overwatch.jpg)"
+    >
+      <h1>Overwatch</h1>
+    </div>
+    <div
+      class="panel"
+      id="panel-hyperlight"
+      style="background-image: url(bg-hyperlight.jpg)"
+    >
+      <h1>Hyperlight</h1>
+    </div>
+    <div
+      class="panel"
+      id="panel-apex"
+      style="background-image: url(bg-apex.png)"
+    >
+      <h1>Apex</h1>
+    </div>
+    <script>
+      const panels = document.querySelectorAll(".panel");
+      const buttons = document.querySelectorAll("ul li");
+
+      // First, set initial positions off-screen
+      panels.forEach((panel) => {
+        panel.style.transform = "translateX(-150%)";
+      });
+
+      buttons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+          panels.forEach((panel) => {
+            panel.style.transform = "translateX(-150%)";
+          });
+          panels[index].style.transform = "translateX(0)";
+        });
+      });
+    </script>
+  </body>
+</html>
